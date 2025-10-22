@@ -15,10 +15,15 @@ M.base46 = {
 }
 
 -- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
--- }
+M.ui = {
+  statusline = {
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "windsurf", "diagnostics", "lsp", "cwd", "cursor" },
+    modules = {
+      windsurf = function()
+        return vim.api.nvim_call_function("codeium#GetStatusString", {})
+      end
+    }
+  }
+}
 
 return M
