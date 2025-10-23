@@ -73,6 +73,11 @@ return {
     config = function ()
       require('configs.windsurf')
     end
+  },
+
+  {
+    "jake-stewart/multicursor.nvim",
+    branch = "1.0",
   }
 
   -- test new blink
