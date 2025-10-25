@@ -16,7 +16,7 @@ return {
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
     'numToStr/Comment.nvim',
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require('Comment').setup()
     end,
@@ -86,4 +86,12 @@ return {
       return require("configs.treesitter")
     end,
   },
+
+  {
+    "jinh0/eyeliner.nvim",
+    event = "VeryLazy",
+    config = function ()
+      require('configs.eyeliner')
+    end
+  }
 }
