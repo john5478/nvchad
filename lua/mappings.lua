@@ -4,7 +4,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "<leader>cd", ":cd %:p:h<CR>")
 map('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
