@@ -34,4 +34,23 @@ mc.addKeymapLayer(function(layerSet)
     end)
 end)
 
+-- 自定義替換函式
+local function RP()
+  local pattern = vim.fn.input("pattern: ")
+  local replace = vim.fn.input("replace: ")
+  replace = vim.fn.escape(replace, ' /$~')
+  pattern = vim.fn.escape(pattern, ' /$~')
+  vim.cmd(string.format("%%s/%s/%s/ge", pattern, replace))
+end
+
+local function RPspecial()
+  local pattern = vim.fn.input("pattern: ")
+  local replace = vim.fn.input("replace: ")
+  vim.cmd(string.format("%%s/%s/%s/ge", pattern, replace))
+end
+
+-- 快捷鍵綁定
+map("n", "<Leader>R", RP, { desc = "詞句替換 (escape 特殊字元)" })
+map("n", "<Leader>rs", RPspecial, { desc = "詞句替換 (允許特殊字元)" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
