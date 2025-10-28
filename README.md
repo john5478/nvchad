@@ -9,4 +9,4 @@
 1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
 
 # Initialize
-nvim --headless -c "MasonInstall stylua html-lsp css-lsp lua-language-server" -c "qall"
+nvim --headless -c "MasonInstall stylua html-lsp css-lsp lua-language-server python-lsp-server json-lsp" -c "qall"
