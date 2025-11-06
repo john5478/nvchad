@@ -18,7 +18,7 @@ mc.setup()
 
 -- Add or skip adding a new cursor by matching word/selection
 map({"n", "x"}, "<C-n>", function() mc.matchAddCursor(1) end)
-map({"n", "x"}, "<C-k>", function() mc.matchSkipCursor(1) end)
+map({"n", "x"}, "<C-p>", function() mc.matchSkipCursor(1) end)
 map({"n", "x"}, "<C-m>", function() mc.matchSkipCursor(-1) end)
 
 -- Mappings defined in a keymap layer only apply when there are
