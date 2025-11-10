@@ -12,6 +12,8 @@ map('i', '<C-j>', function() return vim.fn['codeium#CycleCompletions'](1) end, {
 map('i', '<C-k>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
 map('n', '<leader>ts', [[:%s/\s\+$//e<cr>]])
 map("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "split window vertically" })
+map("n", "<leader>sh", "<cmd>split<CR>", { desc = "split window horizontally" })
 
 local mc = require("multicursor-nvim")
 mc.setup()
