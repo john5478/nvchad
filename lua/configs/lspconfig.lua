@@ -22,10 +22,33 @@ if vim.lsp.config then
       on_init = lspconfig.on_init,
     }
   )
+  vim.lsp.config(
+    "pylsp",
+    {
+      settings = {
+        pylsp = {
+          plugins = {
+            mccabe = {
+              enabled = false
+            },
+          }
+        },
+      },
+    }
+  )
 else
   require("lspconfig").pylsp.setup {
     capabilities = lspconfig.capabilities,
     on_init = lspconfig.on_init,
+    settings = {
+      pylsp = {
+        plugins = {
+          mccabe = {
+            enabled = false
+          },
+        }
+      },
+    },
   }
 end
 
