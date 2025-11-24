@@ -1,5 +1,5 @@
 local options = {
-  ensure_installed = { "python", "json", "yaml", "javascript" },
+  ensure_installed = { "python", "json", "yaml", "javascript", "markdown", "markdown_inline" },
   textobjects = {
     select = {
       enable = true,

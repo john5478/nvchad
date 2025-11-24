@@ -139,5 +139,16 @@ return {
   {
     'dense-analysis/ale',
     event = "User FilePost",
-  }
+  },
+
+  {
+    "olimorris/codecompanion.nvim",
+    event = 'BufEnter',
+    opts = function()
+      return require("configs.codecompanion")
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }

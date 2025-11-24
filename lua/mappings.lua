@@ -14,6 +14,7 @@ map('n', '<leader>ts', [[:%s/\s\+$//e<cr>]])
 map("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "split window vertically" })
 map("n", "<leader>sh", "<cmd>split<CR>", { desc = "split window horizontally" })
+map({"n", "v"}, "<leader>a", "<cmd>CodeCompanionChat Toggle<CR>", { noremap = true, silent = true })
 
 local mc = require("multicursor-nvim")
 mc.setup()
