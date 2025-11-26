@@ -151,4 +151,16 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+
+  {
+    "ravitemer/mcphub.nvim",
+    event = 'BufEnter',
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    build = "npm install -g mcp-hub@latest",
+    config = function()
+        require("mcphub").setup()
+    end
+  },
 }
