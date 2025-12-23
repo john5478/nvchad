@@ -82,6 +82,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    version = "0.10.0",
     opts = function()
       return require("configs.treesitter")
     end,
