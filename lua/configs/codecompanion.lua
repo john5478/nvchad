@@ -1,5 +1,29 @@
 return {
+  rules = {
+    opts = {
+      chat = {
+        enabled = false
+      },
+    },
+  },
   adapters = {
+    acp = {
+      gemini_cli = function()
+        return require("codecompanion.adapters").extend("gemini_cli", {
+          commands = {
+            default = {
+              "gemini",
+              "--acp",
+            },
+            yolo = {
+              "gemini",
+              "--acp",
+              "--yolo",
+            },
+          },
+        })
+      end,
+    },
     http = {
       gemini = function()
         return require("codecompanion.adapters").extend("gemini", {
@@ -12,7 +36,7 @@ return {
   },
   strategies = {
     chat = {
-      adapter = "gemini",
+      adapter = "gemini_cli",
       keymaps = {
         close = {
           modes = {
@@ -23,13 +47,19 @@ return {
       },
     },
     inline = {
-      adapter = "gemini",
+      adapter = "gemini_cli",
     },
     cmd = {
-      adapter = "gemini",
+      adapter = "gemini_cli",
+    }
+  },
+  interactions = {
+    chat = {
+      adapter = "gemini_cli",
     }
   },
   opts = {
-    log_level = "DEBUG"
+    log_level = "DEBUG",
+    timeout = 30000,
   }
 }
