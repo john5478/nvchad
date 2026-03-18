@@ -1,5 +1,11 @@
+local nvchad_opts = require "nvchad.configs.treesitter"
+local ensure_installed = vim.list_extend(
+  vim.deepcopy(nvchad_opts.ensure_installed or {}),
+  { "python", "json", "yaml", "javascript", "markdown", "markdown_inline" }
+)
+
 local options = {
-  ensure_installed = { "python", "json", "yaml", "javascript", "markdown", "markdown_inline" },
+  ensure_installed = ensure_installed,
   textobjects = {
     select = {
       enable = true,
@@ -35,4 +41,4 @@ local options = {
     }
   }
 }
-return vim.tbl_deep_extend("force", require "nvchad.configs.treesitter", options)
+return vim.tbl_deep_extend("force", nvchad_opts, options)
