@@ -1,6 +1,9 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
+vim.env.no_proxy = (vim.env.no_proxy or "") == "" and "localhost,127.0.0.1" or vim.env.no_proxy .. ",localhost,127.0.0.1"
+vim.env.NO_PROXY = vim.env.no_proxy
+
 -- For WSL clipboard
 local function _is_wsl()
   local ok, uname = pcall(vim.loop.os_uname)
