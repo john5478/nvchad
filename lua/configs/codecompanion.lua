@@ -8,6 +8,13 @@ return {
   },
   adapters = {
     acp = {
+      opencode = function()
+        return require("codecompanion.adapters").extend("opencode", {
+          defaults = {
+            model = "google/gemma-4-31b-it"
+          },
+        })
+      end,
       gemini_cli = function()
         return require("codecompanion.adapters").extend("gemini_cli", {
           commands = {
@@ -36,7 +43,7 @@ return {
   },
   strategies = {
     chat = {
-      adapter = "gemini_cli",
+      adapter = "opencode",
       keymaps = {
         close = {
           modes = {
@@ -47,15 +54,15 @@ return {
       },
     },
     inline = {
-      adapter = "gemini_cli",
+      adapter = "opencode",
     },
     cmd = {
-      adapter = "gemini_cli",
+      adapter = "opencode",
     }
   },
   interactions = {
     chat = {
-      adapter = "gemini_cli",
+      adapter = "opencode",
     }
   },
   opts = {
