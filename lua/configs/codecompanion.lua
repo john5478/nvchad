@@ -32,10 +32,37 @@ return {
       end,
     },
     http = {
+      ollama = function()
+        return require("codecompanion.adapters").extend("ollama", {
+          schema = {
+            model = {
+              default = "gemini-3-flash-preview",
+            },
+          },
+          env = {
+            api_key = "cmd:cat ~/.local/share/opencode/auth.json | jq '.\"ollama-cloud\".key' -r",
+            url = "https://ollama.com",
+          },
+          headers = {
+            Authorization = "Bearer ${api_key}",
+          },
+        })
+      end,
       gemini = function()
         return require("codecompanion.adapters").extend("gemini", {
+          schema = {
+            model = {
+              default = "gemma-4-31b-it",
+              choices = {
+                ["gemma-4-31b-it"] = {
+                  formatted_name = "Gemma 4 31B Instruction Tuned",
+                  opts = { can_reason = true, has_vision = true },
+                },
+              },
+            }
+          },
           env = {
-            api_key = "cmd:cat ~/.config/nvim/.gemini_apikey",
+            api_key = "cmd:cat ~/.local/share/opencode/auth.json | jq '.google.key' -r",
           },
         })
       end,
@@ -43,7 +70,7 @@ return {
   },
   strategies = {
     chat = {
-      adapter = "opencode",
+      adapter = "gemini",
       keymaps = {
         close = {
           modes = {
@@ -54,15 +81,15 @@ return {
       },
     },
     inline = {
-      adapter = "opencode",
+      adapter = "gemini",
     },
     cmd = {
-      adapter = "opencode",
+      adapter = "gemini",
     }
   },
   interactions = {
     chat = {
-      adapter = "opencode",
+      adapter = "gemini",
     }
   },
   opts = {
