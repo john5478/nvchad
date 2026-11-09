@@ -75,11 +75,11 @@ return {
   },
 
   {
-    'Exafunction/windsurf.vim',
-    event = 'BufEnter',
-    config = function ()
-      require('configs.windsurf')
-    end
+    "supermaven-inc/supermaven-nvim",
+    event = "BufEnter",
+    config = function()
+      require("configs.supermaven")
+    end,
   },
 
   {
