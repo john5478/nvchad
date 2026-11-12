@@ -75,13 +75,11 @@ return {
   },
 
   {
-    "milanglacier/minuet-ai.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      require("configs.minuet")
+      require("configs.copilot")
     end,
   },
 
