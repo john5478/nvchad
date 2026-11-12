@@ -77,7 +77,15 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "InsertEnter",
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      {
+        "copilotlsp-nvim/copilot-lsp",
+        init = function()
+          vim.g.copilot_nes_debounce = 300
+        end,
+      },
+    },
     config = function()
       require("configs.copilot")
     end,
