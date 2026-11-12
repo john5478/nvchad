@@ -16,16 +16,7 @@ M.base46 = {
 -- M.nvdash = { load_on_startup = true }
 M.ui = {
   statusline = {
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "supermaven", "diagnostics", "lsp", "cwd", "cursor" },
-    modules = {
-      supermaven = function()
-        local ok, api = pcall(require, "supermaven-nvim.api")
-        if ok and api.is_running() then
-          return "SM "
-        end
-        return ""
-      end,
-    }
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
   }
 }
 

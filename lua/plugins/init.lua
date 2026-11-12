@@ -75,10 +75,13 @@ return {
   },
 
   {
-    "supermaven-inc/supermaven-nvim",
-    event = "BufEnter",
+    "milanglacier/minuet-ai.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
     config = function()
-      require("configs.supermaven")
+      require("configs.minuet")
     end,
   },
 
