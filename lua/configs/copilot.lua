@@ -1,16 +1,16 @@
-vim.keymap.set({ "i", "n" }, "<C-g>", function()
-  local ok, nes = pcall(require, "copilot-lsp.nes")
-  if ok and nes.apply_pending_nes() then
-    nes.walk_cursor_end_edit()
-  end
-end, { desc = "[copilot] accept NES suggestion", silent = true })
-
-vim.keymap.set({ "i", "n" }, "<C-e>", function()
-  local ok, nes = pcall(require, "copilot-lsp.nes")
-  if ok then
-    nes.clear()
-  end
-end, { desc = "[copilot] clear NES suggestion", silent = true })
+-- vim.keymap.set({ "i", "n" }, "<C-g>", function()
+--   local ok, nes = pcall(require, "copilot-lsp.nes")
+--   if ok and nes.apply_pending_nes() then
+--     nes.walk_cursor_end_edit()
+--   end
+-- end, { desc = "[copilot] accept NES suggestion", silent = true })
+--
+-- vim.keymap.set({ "i", "n" }, "<C-e>", function()
+--   local ok, nes = pcall(require, "copilot-lsp.nes")
+--   if ok then
+--     nes.clear()
+--   end
+-- end, { desc = "[copilot] clear NES suggestion", silent = true })
 
 require("copilot").setup({
   panel = {
@@ -31,7 +31,7 @@ require("copilot").setup({
     },
   },
   nes = {
-    enabled = true,
+    enabled = false,
     auto_trigger = true,
     keymap = {
       accept_and_goto = false,
